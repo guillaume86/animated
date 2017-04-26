@@ -12,7 +12,7 @@
 
 var Animated = require('./Animated');
 
-function isAnimated(obj) {
+function isAnimated(obj: any) {
   return obj instanceof Animated;
 }
 

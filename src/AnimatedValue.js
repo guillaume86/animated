@@ -10,6 +10,7 @@
  */
 'use strict';
 
+var Animated = require('./Animated');
 var AnimatedWithChildren = require('./AnimatedWithChildren');
 var InteractionManager = require('./injectable/InteractionManager');
 var AnimatedInterpolation = require('./AnimatedInterpolation');

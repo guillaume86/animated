@@ -15,15 +15,15 @@ var AnimatedWithChildren = require('./AnimatedWithChildren');
 
 class AnimatedTemplate extends AnimatedWithChildren {
   _strings: Array<string>;
-  _values: Array;
+  _values: Array<Animated | any>;
 
-  constructor(strings, values) {
+  constructor(strings: Array<string>, values: Array<Animated | any>) {
     super();
     this._strings = strings;
     this._values = values;
   }
 
-  __transformValue(value): any {
+  __transformValue(value: Animated | any): any {
     if (value instanceof Animated) {
       return value.__getValue();
     } else {
@@ -31,7 +31,7 @@ class AnimatedTemplate extends AnimatedWithChildren {
     }
   }
 
-  __getValue(): String {
+  __getValue(): string {
     var value = this._strings[0];
     for (var i = 0; i < this._values.length; ++i) {
       value += this.__transformValue(this._values[i]) + this._strings[1 + i];
