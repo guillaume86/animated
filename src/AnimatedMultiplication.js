@@ -15,15 +15,17 @@ var Animated = require('./Animated');
 var AnimatedValue = require('./AnimatedValue');
 var AnimatedInterpolation = require('./AnimatedInterpolation');
 var Interpolation = require('./Interpolation');
+var guid = require('./guid');
 
 import type { InterpolationConfigType } from './Interpolation';
+import type { ValueListenerCallback } from './AnimatedValue';
 
 class AnimatedMultiplication extends AnimatedWithChildren {
   _a: Animated;
   _b: Animated;
-  _aListener: number;
-  _bListener: number;
-  _listeners: {[key: number]: ValueListenerCallback};
+  _aListener: string;
+  _bListener: string;
+  _listeners: {[key: string]: ValueListenerCallback};
 
   constructor(a: Animated | number, b: Animated | number) {
     super();

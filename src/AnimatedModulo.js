@@ -14,14 +14,16 @@ var Animated = require('./Animated');
 var AnimatedWithChildren = require('./AnimatedWithChildren');
 var AnimatedInterpolation = require('./AnimatedInterpolation');
 var Interpolation = require('./Interpolation');
+var guid = require('./guid');
 
 import type { InterpolationConfigType } from './Interpolation';
+import type { ValueListenerCallback } from './AnimatedValue';
 
 class AnimatedModulo extends AnimatedWithChildren {
   _a: Animated;
   _modulus: number; // TODO(lmr): Make modulus able to be an animated value
-  _aListener: number;
-  _listeners: {[key: number]: ValueListenerCallback};
+  _aListener: string;
+  _listeners: {[key: string]: ValueListenerCallback};
 
   constructor(a: Animated, modulus: number) {
     super();

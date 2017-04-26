@@ -17,12 +17,13 @@ var Interpolation = require('./Interpolation');
 var guid = require('./guid');
 
 import type { ValueListenerCallback } from './AnimatedValue';
+import type { InterpolationConfigType } from './Interpolation';
 
 class AnimatedInterpolation extends AnimatedWithChildren {
   _parent: Animated;
   _interpolation: (input: number) => number | string;
-  _listeners: {[key: number]: ValueListenerCallback};
-  _parentListener: number;
+  _listeners: {[key: string]: ValueListenerCallback};
+  _parentListener: string;
 
   constructor(parent: Animated, interpolation: (input: number) => number | string) {
     super();
