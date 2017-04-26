@@ -17,6 +17,7 @@ var AnimatedValue = require('./AnimatedValue');
 var AnimatedValueXY = require('./AnimatedValueXY');
 var AnimatedAddition = require('./AnimatedAddition');
 var AnimatedMultiplication = require('./AnimatedMultiplication');
+var AnimatedDivision = require('./AnimatedDivision');
 var AnimatedModulo = require('./AnimatedModulo');
 var AnimatedTemplate = require('./AnimatedTemplate');
 var AnimatedTracking = require('./AnimatedTracking');
@@ -432,6 +433,13 @@ module.exports = {
    */
   multiply: function multiply(a: Animated, b: Animated): AnimatedMultiplication {
     return new AnimatedMultiplication(a, b);
+  },
+  /**
+   * Creates a new Animated value composed from two Animated values divided
+   * together.
+   */
+  divide: function divide(a: Animated, b: Animated): AnimatedDivision {
+    return new AnimatedDivision(a, b);
   },
 
   /**
